@@ -1,32 +1,30 @@
 const a = parseFloat(prompt('Enter A'));
 const b = parseFloat(prompt('Enter B'));
 const c = parseFloat(prompt('Enter C'));
-x1 = 'x1';
-x2 = 'x2';
+let x1 = 'x1';
+let x2 = 'x2';
 
 const result = solveQuadr(a, b, c);
 document.write(result);
 
 function solveQuadr(a, b, c) {
-    const d = calcDisc(a, b, c);
+    const discriminant = calcDisc(a, b, c);
 
-    if (d > 0) {
-        x1 = (-b + Math.sqrt(d)) / (2 * a);
-        x2 = (-b - Math.sqrt(d)) / (2 * a);
-        return `Коефіціїнти: a=${a}, b=${b}, c=${c},
-        Корінь: x1=${x1}, x2=${x2},
-        Дискримінант (D) =${d}`;
-    } else if (d === 0) {
+    if (discriminant > 0) {
+        x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+    } else if (discriminant === 0) {
         x1 = -b / (2 * a);
-        return `Коефіціїнти: a=${a}, b=${b}, c=${c},
-        Корінь: x1=${x1},
-        Дискримінант (D) =${d}`;
-    } else if (d < 0) {
-        return `Коефіціїнти: a=${a}, b=${b}, c=${c},
-        Корені відсутні,
-        Дискримінант (D) =${d}`;
     }
+
+    return `Коефіціїнти: a=${a}, b=${b}, c=${c}, ${getX1X2(x1, x2, discriminant)},
+    Дискримінант (D) =${discriminant}`;
     
+}
+
+function getX1X2(x1, x2, discriminant) {
+    
+    return (discriminant > 0) ? `Корінь: x1=${x1}, x2=${x2}` : (discriminant === 0) ? ` Корінь: x1=${x1}` : `Корені відсутні`;
 }
 
 function calcDisc(a, b, c) {
