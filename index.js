@@ -1,21 +1,31 @@
 const a = parseFloat(prompt('Enter A'));
 const b = parseFloat(prompt('Enter B'));
 const c = parseFloat(prompt('Enter C'));
+x1 = 'x1';
+x2 = 'x2';
 
 const result = solveQuadr(a, b, c);
 document.write(result);
 
 function solveQuadr(a, b, c) {
-    const D = calcDisc(a, b, c);
+    const d = calcDisc(a, b, c);
 
-    if (D > 0) {
-        x1 = (-b + Math.sqrt(D)) / (2 * a);
-        x2 = (-b - Math.sqrt(D)) / (2 * a);
-        return 'Коефіціїнти: a=' + a + ', b=' + b + ', c=' + c + ', \n Корінь: x1=' + x1 + ', x2=' + x2 + ', \n Дискримінант (D) = ' + D;
-    } else if (D === 0) {
+    if (d > 0) {
+        x1 = (-b + Math.sqrt(d)) / (2 * a);
+        x2 = (-b - Math.sqrt(d)) / (2 * a);
+        return `Коефіціїнти: a=${a}, b=${b}, c=${c},
+        Корінь: x1=${x1}, x2=${x2},
+        Дискримінант (D) =${d}`;
+    } else if (d === 0) {
         x1 = -b / (2 * a);
-        return 'Коефіціїнти: a=' + a + ', b=' + b + ', c=' + c + ', \n Корінь: x1=' + x1 + ', \n Дискримінант (D) = ' + D;;
-    } else if (D < 0) return 'Коефіціїнти: a=' + a + ', b=' + b + ', c=' + c + ', \n Корені відсутні, \n Дискримінант (D) = ' + D;;
+        return `Коефіціїнти: a=${a}, b=${b}, c=${c},
+        Корінь: x1=${x1},
+        Дискримінант (D) =${d}`;
+    } else if (d < 0) {
+        return `Коефіціїнти: a=${a}, b=${b}, c=${c},
+        Корені відсутні,
+        Дискримінант (D) =${d}`;
+    }
     
 }
 
