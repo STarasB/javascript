@@ -1,13 +1,13 @@
 const a = parseFloat(prompt('Enter A'));
 const b = parseFloat(prompt('Enter B'));
 const c = parseFloat(prompt('Enter C'));
-let x1 = 'x1';
-let x2 = 'x2';
 
 const result = solveQuadr(a, b, c);
 document.write(result);
 
 function solveQuadr(a, b, c) {
+    let x1;
+    let x2;
     const discriminant = calcDisc(a, b, c);
 
     if (discriminant > 0) {
