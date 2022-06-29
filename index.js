@@ -23,7 +23,6 @@ function solveQuadr(a, b, c) {
 }
 
 function getX1X2(x1, x2, discriminant) {
-    
     return (discriminant > 0) ? `Корінь: x1=${x1}, x2=${x2}` : (discriminant === 0) ? ` Корінь: x1=${x1}` : `Корені відсутні`;
 }
 
